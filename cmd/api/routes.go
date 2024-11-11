@@ -14,5 +14,9 @@ func (app *application) routes() http.Handler {
 
 	router.HandlerFunc(http.MethodGet, "/v1/healthcheck", app.healthcheckHandler)
 
+	// Add the route for the POST /v1/users endpoint.
+	router.HandlerFunc(http.MethodPost, "/v1/users", app.registerUserHandler)
+
+	//user routes
 	return app.recoverPanic(router)
 }
